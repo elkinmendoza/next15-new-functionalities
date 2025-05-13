@@ -3,13 +3,16 @@ export default function ComplexDashboardLayout({
   users,
   revenue,
   notifications,
+  login,
 }: {
   children: React.ReactNode;
   users: React.ReactNode;
   revenue: React.ReactNode;
   notifications: React.ReactNode;
+  login: React.ReactNode;
 }) {
-  return (
+  const isLoggedIn = false; // Replace with actual authentication logic
+  return isLoggedIn ? (
     <>
       <div>{children}</div>
       <div className="container mx-auto min-h-screen p-4">
@@ -29,5 +32,7 @@ export default function ComplexDashboardLayout({
         </div>
       </div>
     </>
-  );
+  ) : (
+    login
+  ); // If not logged in, show the login page;
 }
