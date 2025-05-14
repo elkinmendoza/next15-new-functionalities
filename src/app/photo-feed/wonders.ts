@@ -1,4 +1,4 @@
-interface WonderImage {
+export type WonderImage = {
   id: number;
   name: string;
   src: string;
@@ -7,7 +7,7 @@ interface WonderImage {
   location: string;
   date: string;
   tags: string[];
-}
+};
 
 const wonderImages: WonderImage[] = [
   {

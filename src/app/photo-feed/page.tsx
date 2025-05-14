@@ -1,7 +1,7 @@
 import Image from "next/image";
 import wonderImages from "./wonders";
 import Link from "next/link";
-export default function PhotoFeed() {
+export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center w-full h-full">
       <h1 className="text-2xl font-bold">Photo Feed</h1>
@@ -14,6 +14,8 @@ export default function PhotoFeed() {
           >
             <Link href={`/photo-feed/${_.id}`}>
               <Image
+                width={500}
+                height={500}
                 src={_.src}
                 alt={_.name}
                 className="absolute top-0 left-0 w-full h-full object-cover"
