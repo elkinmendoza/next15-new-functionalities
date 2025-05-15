@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import FormExample from "./_components/formexample";
 import Header from "./_components/header";
-import ErrorWrapper from "./error-wrapper";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -33,8 +31,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Header />
-        <FormExample />
-        <ErrorWrapper>{children}</ErrorWrapper>
+        {children}
         <footer>
           <div className="bg-gray-800 p-4">
             <div className="container mx-auto">

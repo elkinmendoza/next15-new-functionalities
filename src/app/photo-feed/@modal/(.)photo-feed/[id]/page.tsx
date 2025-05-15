@@ -12,6 +12,7 @@ export default async function PhotoPage({
 
   return (
     <Modal>
+      jajaja
       <Image
         width={500}
         height={500}
@@ -19,7 +20,6 @@ export default async function PhotoPage({
         src={photo.src}
         className="w-full object-cover aspect-square"
       />
-
       <div className="bg-white p-4">
         <h2 className="text-xl font-semibold">{photo.name}</h2>
         <h3>{photo.photographer}</h3>

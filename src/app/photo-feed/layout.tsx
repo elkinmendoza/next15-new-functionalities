@@ -1,11 +1,14 @@
-export default function Layout(props: {
-  modal: React.ReactNode;
+export default function PhotoFeedLayout({
+  children,
+  modal,
+}: {
   children: React.ReactNode;
+  modal?: React.ReactNode;
 }) {
   return (
     <>
-      {props.modal}
-      {props.children}
+      {children}
+      {modal}
     </>
   );
 }
