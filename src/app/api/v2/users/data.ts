@@ -1,6 +1,39 @@
-import { time } from "console";
+export type User = {
+  id: number;
+  name: {
+    first: string;
+    last: string;
+  };
+  email: string;
+  age: number;
+  address: {
+    street: string;
+    city: string;
+    state: string;
+    zip: string;
+  };
+  hobbies: string[];
+  friends: {
+    id: number;
+    name: string;
+  }[];
+  preferences: {
+    theme: string;
+    emailNotifications: boolean;
+    language: string;
+    timezone: string;
+  };
+  profile: {
+    bio: string;
+    website: string;
+    socialMedia: {
+      twitter: string;
+      github: string;
+    };
+  };
+};
 
-export const users = [
+export const users: User[] = [
   {
     id: 1,
     name: {

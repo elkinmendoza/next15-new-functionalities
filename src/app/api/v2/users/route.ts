@@ -8,10 +8,10 @@ export async function GET(request: NextRequest) {
     ? users.filter(
         (user: {
           id: number;
-          name: string | string[];
-          email: string | string[];
+          name: { first: string; last: string };
+          email: string;
         }) =>
-          user.name.includes(query) ||
+          `${user.name.first} ${user.name.last}`.includes(query) ||
           user.email.includes(query) ||
           user.id.toString().includes(query)
       )
