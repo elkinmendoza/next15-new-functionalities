@@ -1,11 +1,18 @@
 "use client";
-import { serverSideFunction } from "@/utils/server-utils";
+import React from "react";
+
+import { useTheme } from "@/components/theme-provider";
 
 export default function ClientRoutePage() {
-    const result = serverSideFunction();
-    return (
-        <section className="w-full h-screen  my-12 m-auto">
-            <h1>Client Route {result}</h1>
-        </section>
-    );
+    const theme = useTheme();
+
+  return (
+    <section className="w-full h-screen  my-12 m-auto">
+      <div className="image-slider-container">
+         <h1 style={{color:theme.colors.primary}}> Client Route</h1>
+         <h1 style={{color:theme.colors.secondary}}> Secondary Route</h1>
+
+      </div>
+    </section>
+  );
 }
