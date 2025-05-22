@@ -11,9 +11,9 @@ export async function GET(request: NextRequest) {
           name: { first: string; last: string };
           email: string;
         }) =>
-          `${user.name.first} ${user.name.last}`.includes(query) ||
-          user.email.includes(query) ||
-          user.id.toString().includes(query)
+          `${user.name.first} ${user.name.last}`.includes(query || "") ||
+          user.email.includes(query || "") ||
+          user.id.toString().includes(query || "")
       )
     : users;
   return Response.json(filterUsers);
