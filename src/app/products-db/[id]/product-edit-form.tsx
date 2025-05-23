@@ -1,14 +1,18 @@
 "use client";
-import { createProduct, FormState } from "@/actions/products";
+import { editProduct, FormState } from "@/actions/products";
 import { Submit } from "@/components/submit";
 import { useActionState } from "react";
+import type { Product } from "@/app/products-db/page";
+import { updateProduct } from "@/prisma-db";
 
-export default function AddProductPage() {
+export default function EditProductForm({ product }: { product: Product }) {
   const initialState: FormState = {
     errors: {},
   };
+
+  const editProductWithID = editProduct.bind(null, product.id);
   const [state, formAction, isPending] = useActionState(
-    createProduct,
+    editProductWithID,
     initialState
   );
 
@@ -20,6 +24,7 @@ export default function AddProductPage() {
           type="text"
           className="block w-full p-2 text-black border rounded"
           name="title"
+          defaultValue={product.title}
         />
       </label>
       {state.errors.title && (
@@ -31,6 +36,7 @@ export default function AddProductPage() {
           type="number"
           className="block w-full p-2 text-black border rounded"
           name="price"
+          defaultValue={product.price}
         />
       </label>
       {state.errors.price && (
@@ -41,6 +47,7 @@ export default function AddProductPage() {
         <textarea
           className="block w-full p-2 text-black border rounded"
           name="description"
+          defaultValue={product.description || ""}
         />
       </label>
       {state.errors.description && (
