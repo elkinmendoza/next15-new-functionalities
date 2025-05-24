@@ -2,8 +2,6 @@ import "./globals.css";
 
 import { ThemeProvider } from "@/components/theme-provider";
 
-
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -12,10 +10,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ThemeProvider>
-      <body
-      >
-        {children}
-      </body>
+        <body>{children}</body>
       </ThemeProvider>
     </html>
   );
