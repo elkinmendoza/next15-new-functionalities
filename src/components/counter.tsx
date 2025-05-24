@@ -4,7 +4,7 @@ import { useAuth, useUser } from "@clerk/nextjs";
 export const Counter = () => {
   const [count, setCount] = useState(0);
   const { isLoaded, userId, sessionId } = useAuth();
-  //   const { isLoaded, isSignedIn, userId } = useAuth();
+  //   const { isLoaded, isSignedIn, user } = useUser();
 
   if (!isLoaded || !userId || !sessionId) {
     return null;
