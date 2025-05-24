@@ -10,7 +10,8 @@ export default clerkMiddleware(async (auth, req) => {
 
   const { userId, redirectToSignIn } = await auth();
   if (!userId && (isProtectedRoute(req) || !isPublicRoute(req))) {
-    // add custom Logic to run before redirectin
+    // add custom Logic to run before redirecting
+
     await redirectToSignIn();
 
     // await auth.protect();

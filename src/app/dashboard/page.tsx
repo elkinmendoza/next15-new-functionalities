@@ -1,18 +1,13 @@
-"use client";
+import { auth, currentUser } from "@clerk/nextjs/server";
 
-import { useState } from "react";
-export default function DashboardPage() {
-  const [name, setName] = useState("John Doe");
+export default async function DashboardPage() {
+  const authobject = await auth();
+  const userObject = await currentUser();
+  console.log("auth object", authobject);
+  console.log("user object", userObject);
   return (
-    <div>
+    <div className="max-w-7xl mx-auto p-16">
       <h1>Dashboard</h1>
-      <input
-        type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        placeholder="Enter your name"
-      />
-      <p>hello{name}</p>
     </div>
   );
 }
