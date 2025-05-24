@@ -7,8 +7,13 @@ const isPublicRoute = createRouteMatcher(["/", "/sign-in(.*)", "/sign-up(.*)"]);
 export default clerkMiddleware(async (auth, req) => {
   console.log(auth, "auth");
   console.log("req", req);
-  if (isProtectedRoute(req) || !isPublicRoute(req)) {
-    await auth.protect();
+
+  const { userId, redirectToSignIn } = await auth();
+  if (!userId && (isProtectedRoute(req) || !isPublicRoute(req))) {
+    // add custom Logic to run before redirectin
+    await redirectToSignIn();
+
+    // await auth.protect();
   }
 });
 
