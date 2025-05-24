@@ -6,6 +6,7 @@ export type Product = {
   description: string | null;
 };
 import { removeProduct } from "@/actions/products";
+import Form from "next/form";
 import Link from "next/link";
 import { useOptimistic } from "react";
 
@@ -42,14 +43,14 @@ export const ProductList = ({ products }: { products: Product[] }) => {
               Price: ${product.price}
             </p>
             <p className="text-gray-500 text-sm">Product ID: {product.id}</p>
-            <form action={removeProductById.bind(null, product.id)}>
+            <Form action={removeProductById.bind(null, product.id)}>
               <button
                 type="submit"
                 className="mt-4 bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600"
               >
                 Delete
               </button>
-            </form>
+            </Form>
           </div>
         ))}
       </div>
