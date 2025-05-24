@@ -1,6 +1,6 @@
+import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
-
-import { ThemeProvider } from "@/components/theme-provider";
+import { Navigation } from "@/components/navigation";
 
 export default function RootLayout({
   children,
@@ -8,10 +8,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <ThemeProvider>
-        <body>{children}</body>
-      </ThemeProvider>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body>
+          <Navigation></Navigation>
+          {children}
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
